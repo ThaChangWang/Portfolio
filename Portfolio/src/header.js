@@ -1,12 +1,12 @@
-import { Typography, Grid, Button, Avatar, makeStyles } from "@material-ui/core"
+import { Typography, Grid, Avatar, makeStyles } from "@material-ui/core"
 
 import { useTheme } from '@material-ui/core/styles'
 
-import canoe from "./images/canoe.jpg"
-import asmr from "./images/3.mp4"
+import "./header.css"
 
-import { Player, ControlBar } from 'video-react';
-
+import canoe from "./images/header/canoe.jpg"
+import bham from "./images/header/bellingham.jpeg"
+//import asmr from "./images/fire.mp4"
 
 function Header(props) {
 
@@ -16,12 +16,15 @@ function Header(props) {
   const useStyles = makeStyles({
   
     buttonStyle: {
-      color: "black"
+      color: "black",
+      width: theme.spacing(30),
+      fontFamily: "roboto",
+      fontSize: "16px"
     },
     avatar: {
-      align: "center",
-      height: theme.spacing(35),
-      width: theme.spacing(35)
+      display: "contain",
+      height: theme.spacing(30),
+      width: theme.spacing(30)
     }
   })
 
@@ -30,40 +33,65 @@ function Header(props) {
 
   return (
     <div>
-      <Grid container spacing={4}>
-        <Grid item xs={4}>
-          <div>
-          <video width="300" height="300" autoPlay >
-            <source src={asmr} type="video/mp4"/>
-          </video>
-          </div>
-        </Grid>
-        <Grid item xs={4}>
-          <div>
-            <Typography variant="h2"> Anders Bergquist </Typography>
-            <Typography variant="h4"> abergquist96@gmail.com </Typography>
-            <Typography variant="h4"> 4922 Smugglers Cove Rd. Freeland, WA 98249 </Typography>
-            <Typography variant="h4"> 1-360-969-9115 </Typography>
-          </div>
-        </Grid>
-        <Grid item xs={4}>
-          <Avatar className={classes.avatar} alt="Anders Bergquist" src={canoe} />
-        </Grid>
-      </Grid>
-      <hr />
-      <div>
+      <div className="Header-Pictures">
         <Grid container spacing={1}>
-          <Grid item xs={4}>
-            <Button className={classes.buttonStyle} onClick={() => props.setPage("about")}> About </Button>
+          <Grid item xs={4} md={2}>
+            <Avatar className={classes.avatar} alt="Anders Bergquist" src={canoe} />
           </Grid>
-          <Grid item xs={4}>
-            <Button className={classes.buttonStyle} onClick={() => props.setPage("classes")}> Classes </Button>
+          <Grid item xs={4} md={2}>
+            <Avatar className={classes.avatar} alt="Anders Bergquist" src={bham} />
           </Grid>
-          <Grid item xs={4}>
-            <Button className={classes.buttonStyle} onClick={() => props.setPage("projects")}> Projects </Button>
+          <Grid item xs={4} md={2}>
+            <Avatar className={classes.avatar} alt="Anders Bergquist" src={canoe} />
           </Grid>
+          <Grid item xs={4} md={2}>
+            <Avatar className={classes.avatar} alt="Anders Bergquist" src={canoe} />
+          </Grid>
+          <Grid item xs={4} md={2}>
+            <Avatar className={classes.avatar} alt="Anders Bergquist" src={canoe} />
+          </Grid>
+          <Grid item xs={4} md={2}>
+            <Avatar className={classes.avatar} alt="Anders Bergquist" src={canoe} />
+          </Grid>     
         </Grid>
       </div>
+
+      <br />
+        <div>
+          <Typography variant="h2"> Anders Bergquist </Typography>
+          <Typography variant="h4"> abergquist96@gmail.com </Typography>
+          <Typography variant="h4"> 4922 Smugglers Cove Rd. Freeland, WA 98249 </Typography>
+          <Typography variant="h4"> 1-360-969-9115 </Typography>
+        </div>
+      <br />
+
+        {/*<div>
+          <Typography variant="h4"> Enjoy some nice background music: </Typography>
+          <br />
+          <Grid container spacing={4}>
+            <Grid item xs={6} md={3}>
+              <video src={asmr} width="250" controls>
+              </video>
+              <Typography variant="h4"> Water </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <video src={asmr} width="250" controls>
+              </video>
+              <Typography variant="h4"> Earth </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <video src={asmr} width="250" controls>
+              </video>
+              <Typography variant="h4"> Fire </Typography>
+            </Grid>
+            <Grid item xs={6} md={3}>
+              <video src={asmr} width="250" controls>
+              </video>
+              <Typography variant="h4"> Air </Typography>
+            </Grid>     
+          </Grid>
+        </div>*/}
+      
     </div>
   )
 }
